@@ -1,0 +1,34 @@
+{
+  "devDependencies": {
+    "@fitbit/sdk": "~6.1.0"
+  },
+  "fitbit": {
+    "appUUID": "fd566d2b-843d-4dba-a6a7-4f7527c67cfa",
+    "appType": "clockface",
+    "appDisplayName": "Superman Clock",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "",
+    "requestedPermissions": [
+      "access_heart_rate",
+      "access_user_profile",
+      "access_internet",
+      "access_location"
+    ],
+    "buildTargets": [
+      "atlas",
+      "vulcan"
+    ],
+    "i18n": {
+      "en-US": {
+        "name": "Simple Superman Clock"
+      }
+    },
+    "defaultLanguage": "en-US"
+  },
+  "dependencies": {
+    "@fitbit/sdk-cli": "^1.7.3"
+  },
+  "scripts": {
+    "build": "fitbit-build"
+  }
+}

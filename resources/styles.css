@@ -1,0 +1,49 @@
+.background {
+  viewport-fill: blue;
+}
+
+.time-hours{
+  font-family: "System-Regular";
+  font-size: 120;
+  font-weight: bold;
+  x: 50%;
+  y: 59%;
+  fill: #cfe4ff;
+}
+
+.time-minutes{
+  font-family: "System-Regular";
+  font-size: 120;
+  x: 50%;
+  y: 87%;
+  fill: #cfe4ff;
+}
+
+.date-text {
+  font-family: "System-Bold";
+  font-size: 26;
+  text-anchor: start;
+  text-length: 32;
+  x: 10%;
+  y: 20%;
+  width: 100%;
+  height: 100%;
+  fill: #FFFFFF;
+}
+
+.weather{
+  font-family: "System-Bold";
+  font-size: 26;
+  text-anchor: start;
+  text-length: 32;
+  x: 10%;
+  y: 40%;
+  width: 100%;
+  height: 100%;
+  fill: #FFFFFF;
+}
+
+#clockShadow {
+  x: 35%+3;
+  y: 80%+3;
+}

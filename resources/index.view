@@ -1,0 +1,7 @@
+<svg class="background">
+  <image href="superman-bg.png" />
+  <text id="txtDate" class="date-text">Thu, 5 May</text>
+  <text id="txtWeather" class="weather">15</text>
+  <text id="txtHours" class="time-hours" text-anchor="middle"/>
+  <text id="txtMinutes" class="time-minutes" text-anchor="middle"/>
+</svg>
