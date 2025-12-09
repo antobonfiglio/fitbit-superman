@@ -15,12 +15,14 @@ export function initialize(callback) {
 }
 
 function fileHandler() {
-  let fileName;
-  do {
-    fileName = inbox.nextFile();
+  // Process all new files in the inbox. Use a while loop so we only
+  // attempt to read data when a file is actually returned by inbox.nextFile().
+  let fileName = inbox.nextFile();
+  while (fileName) {
     data = loadData();
     updatedData();
-  } while (fileName);
+    fileName = inbox.nextFile();
+  }
 }
 
 function loadData() {

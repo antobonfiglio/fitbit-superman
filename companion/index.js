@@ -4,22 +4,38 @@ import { outbox } from "file-transfer";
 import { weather, WeatherCondition } from "weather";
 import { dataFile, wakeTime } from "../common/constants";
 import { findWeatherConditionName } from "../common/utils";
+import "./settings";
 
 function refreshData() {
   weather
     .getWeatherData()
     .then((data) => {
-       if (data.locations.length > 0) {
-        sendData({
-          temperature: Math.floor(data.locations[0].currentWeather.temperature),
-          condition: findWeatherConditionName(WeatherCondition, data.locations[0].currentWeather.weatherCondition),
-          conditionCode: data.locations[0].currentWeather.weatherCondition,
-          location: data.locations[0].name,
-          unit: data.temperatureUnit
-        });
-      } else {
-        console.warn("No data for this location.")
+      // Defensive checks: ensure we have a valid locations array and currentWeather
+      if (!data || !Array.isArray(data.locations) || data.locations.length === 0) {
+        console.warn("No locations in weather data.");
+        return;
       }
+
+      const loc = data.locations[0];
+      const current = loc && loc.currentWeather;
+      if (!current) {
+        console.warn("No currentWeather for the first location.");
+        return;
+      }
+
+      const temperature = typeof current.temperature === "number" ? Math.floor(current.temperature) : null;
+      const conditionName = findWeatherConditionName(WeatherCondition, current.weatherCondition) || "Unknown";
+      const conditionCode = current.weatherCondition || null;
+      const locationName = loc.name || "Unknown";
+      const unit = data.temperatureUnit || "Celsius";
+
+      sendData({
+        temperature: temperature,
+        condition: conditionName,
+        conditionCode: conditionCode,
+        location: locationName,
+        unit: unit
+      });
     })
     .catch((ex) => {
       console.error(ex);

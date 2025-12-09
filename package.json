@@ -1,16 +1,18 @@
 {
   "devDependencies": {
-    "@fitbit/sdk": "~6.1.0"
+    "@fitbit/sdk": "~6.1.0",
+    "@fitbit/sdk-cli": "^1.7.3"
   },
   "fitbit": {
     "appUUID": "fd566d2b-843d-4dba-a6a7-4f7527c67cfa",
     "appType": "clockface",
     "appDisplayName": "Superman Clock",
-    "iconFile": "resources/icon.png",
+    "iconFile": "resources/superman-bg.png",
     "wipeColor": "",
     "requestedPermissions": [
       "access_heart_rate",
       "access_user_profile",
+      "access_activity",
       "access_internet",
       "access_location"
     ],
