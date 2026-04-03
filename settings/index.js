@@ -25,9 +25,20 @@ const colourSet = [
   { color: "#FFFFFF" }      // white
 ];
 
+const faceOptions = [
+  { name: "Superman Classic", value: "superman-classic" },
+  { name: "Superman Minimal", value: "superman-minimal" }
+];
+
 function mySettings(props) {
   return (
     <Page>
+      <Section title={<Text bold align="center">Clock Face Variant</Text>}>
+        <Select
+          settingsKey="faceid"
+          options={faceOptions}
+        />
+      </Section>
       <Section title={<Text bold align="center">Background Color</Text>}>
         <ColorSelect
           settingsKey="accentcolor"

@@ -1,17 +1,47 @@
 <svg class="background">
-  <image href="superman-bg.png" />
+  <image id="imgBackground" href="superman-bg.png" />
   
-  <!-- Special Effect: Background Plate for Time -->
-  <rect class="time-bg" />
-
-  <text id="txtHoursShadow" class="pos-hours glow-effect" />
-  <text id="txtHours" class="pos-hours time-text" />
-  <text id="txtMinutesShadow" class="pos-minutes glow-effect" />
-  <text id="txtMinutes" class="pos-minutes time-text" />
+  <!-- Shadow/Glow effects drawn first so they appear behind main text -->
+  <g transform="translate(3,3)">
+    <text id="txtHoursShadow" class="pos-hours glow-effect" text-length="32" />
+    <text id="txtMinutesShadow" class="pos-minutes glow-effect" text-length="32" />
+  </g>
+  <!-- Main time text drawn after shadows -->
+  <text id="txtHours" class="pos-hours time-text" text-length="32" />
+  <text id="txtMinutes" class="pos-minutes time-text" text-length="32" />
   
   <!-- Stats drawn after time to ensure visibility if overlap occurs -->
   <text id="txtDate" class="date-text" text-length="32">Thu, 5 May</text>
-  <text id="txtWeather" class="weather" text-length="32">15</text>
-  <text id="txtHeart" class="heart" text-length="32">--</text>
-  <text id="txtSteps" class="steps" text-length="32">👣 0 steps</text>
+  
+  <g id="grpWeather">
+    <image id="imgWeatherIcon" class="weather-icon" />
+    <text id="txtWeather" class="weather" text-length="32">15</text>
+  </g>
+  
+  <!-- Stats Groups (Steps, Distance, Calories) -->
+  <!-- Vertically aligned on the left -->
+  
+  <!-- Steps -->
+  <g id="grpSteps" transform="translate(30, 100)">
+    <arc class="stat-track" />
+    <arc id="arcSteps" class="stat-progress steps-color" />
+    <image href="icon-steps.png" class="stat-icon" />
+    <text id="txtStepsVal" class="stat-value">--</text>
+  </g>
+
+  <!-- Distance -->
+  <g id="grpDist" transform="translate(30, 175)">
+    <arc class="stat-track" />
+    <arc id="arcDist" class="stat-progress dist-color" />
+    <image href="icon-dist.png" class="stat-icon" />
+    <text id="txtDistVal" class="stat-value">--</text>
+  </g>
+
+  <!-- Calories -->
+  <g id="grpCals" transform="translate(30, 250)">
+    <arc class="stat-track" />
+    <arc id="arcCals" class="stat-progress cals-color" />
+    <image href="icon-cals.png" class="stat-icon" />
+    <text id="txtCalsVal" class="stat-value">--</text>
+  </g>
 </svg>

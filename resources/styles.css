@@ -4,14 +4,14 @@
 
 /* Shared positioning classes to ensure alignment */
 .pos-hours {
-  x: 50%;
-  y: 64%;
+  x: 60%;
+  y: 58%;
   text-anchor: middle;
 }
 
 .pos-minutes {
-  x: 50%;
-  y: 89%;
+  x: 60%;
+  y: 88%;
   text-anchor: middle;
 }
 
@@ -29,11 +29,8 @@
 .glow-effect {
   font-family: "System-Regular";
   font-size: 100;
-  stroke: #00d0ff;
-  fill: #00d0ff;
-  stroke-width: 12;
+  fill: #000000;
   opacity: 0.8;
-  stroke-linejoin: round;
 }
 
 /* Stats Positioning */
@@ -41,8 +38,8 @@
   font-family: "System-Bold";
   font-size: 24;
   text-anchor: start;
-  x: 8%;
-  y: 12%;
+  x: 12%;
+  y: 15%;
   fill: #FFFFFF;
 }
 
@@ -50,27 +47,55 @@
   font-family: "System-Bold";
   font-size: 22;
   text-anchor: start;
-  x: 8%;
-  y: 22%;
+  x: 22%;
+  y: 25%;
   fill: #FFFFFF;
 }
 
-.heart {
-  font-family: "System-Bold";
-  font-size: 22;
-  text-anchor: start;
-  x: 8%;
-  y: 32%;
+.weather-icon {
+  x: 12%;
+  y: 19%;
+  width: 24;
+  height: 24;
+}
+
+/* Circular Stats */
+.stat-track {
+  width: 40;
+  height: 40;
+  fill: #333333;
+  arc-width: 6;
+  start-angle: 0;
+  sweep-angle: 360;
+}
+
+.stat-progress {
+  width: 40;
+  height: 40;
+  arc-width: 6;
+  start-angle: 0;
+  sweep-angle: 0; /* Updated in JS */
+}
+
+.steps-color { fill: #4cc2c4; } /* Cyan/Teal */
+.dist-color { fill: #a0f272; }  /* Green */
+.cals-color { fill: #f27272; }  /* Red */
+
+.stat-icon {
+  x: 8;
+  y: 8;
+  width: 24;
+  height: 24;
   fill: #FFFFFF;
 }
 
-.steps {
-  font-family: "System-Bold";
-  font-size: 22;
-  text-anchor: start;
-  x: 8%;
-  y: 42%;
+.stat-value {
+  text-anchor: middle;
+  x: 20; /* Center of 40px circle */
+  y: 60; /* Below circle */
+  font-size: 18;
   fill: #FFFFFF;
+  font-family: "System-Bold";
 }
 
 #clockShadow {
@@ -79,15 +104,4 @@
   y: 83%;
 }
 
-/* Background Plate */
-.time-bg {
-  x: 25%;
-  y: 44%;
-  width: 50%;
-  height: 52%;
-  fill: #000000;
-  opacity: 0.4;
-  rx: 15;
-  ry: 15;
-}
 

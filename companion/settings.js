@@ -14,6 +14,26 @@ function parseColor(value, fallback) {
   }
 }
 
+function parseSelectValue(value, fallback) {
+  if (!value) return fallback;
+
+  try {
+    const parsed = JSON.parse(value);
+
+    if (Array.isArray(parsed) && parsed.length > 0) {
+      return parsed[0].value || parsed[0].name || fallback;
+    }
+
+    if (parsed && Array.isArray(parsed.values) && parsed.values.length > 0) {
+      return parsed.values[0].value || parsed.values[0].name || fallback;
+    }
+
+    return parsed.value || parsed.name || fallback;
+  } catch (ex) {
+    return value || fallback;
+  }
+}
+
 // Settings have been changed
 settingsStorage.addEventListener("change", (evt) => {
   sendSettings();
@@ -21,6 +41,7 @@ settingsStorage.addEventListener("change", (evt) => {
 
 function sendSettings() {
   const settings = {
+    faceid: parseSelectValue(settingsStorage.getItem("faceid"), "superman-classic"),
     timecolor: parseColor(settingsStorage.getItem("timecolor"), "#cfe4ff"),
     textcolor: parseColor(settingsStorage.getItem("textcolor"), "#FFFFFF")
   };
